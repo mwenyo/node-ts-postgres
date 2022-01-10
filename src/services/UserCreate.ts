@@ -1,8 +1,8 @@
-import { User } from "@models/User";
-
+import { User } from '@models/User'
 
 export class UserCreate {
-  teste() {
-    const user = new User();
+  teste(): User {
+    const user = new User()
+    return user
   }
 }
