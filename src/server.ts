@@ -1,6 +1,7 @@
 import 'reflect-metadata'
 import express from 'express'
 import '@services/UserCreate'
+import './database'
 
 const app = express()
 
