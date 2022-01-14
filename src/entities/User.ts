@@ -14,13 +14,13 @@ export class User extends BaseEntity {
   @Column()
   password: string
 
-  @Column({ name: 'access_token' })
+  @Column({ name: 'access_token', nullable: true })
   accessToken: string
 
-  @Column({ name: 'refresh_token' })
+  @Column({ name: 'refresh_token', nullable: true })
   refreshToken: string
 
-  @Column({ name: 'email_token' })
+  @Column({ name: 'email_token', nullable: true })
   emailToken: string
 
   @ManyToMany(() => Role)

@@ -1,10 +1,10 @@
 import { Router } from 'express'
-import { CreateCategoryController } from 'src/controllers/CreateCategoryController'
-import { GetAllCategoriesController } from 'src/controllers/GetAllCategoriesController'
+import { routes as userRoutes } from './userRoutes'
+import { routes as authRoutes } from './authRoutes'
 
 const routes = Router()
 
-routes.get('/categories', new GetAllCategoriesController().handle)
-routes.post('/categories', new CreateCategoryController().handle)
+routes.use('/auth', authRoutes)
+routes.use('/users', userRoutes)
 
 export { routes }

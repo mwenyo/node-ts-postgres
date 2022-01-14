@@ -1,4 +1,4 @@
-import { PrimaryColumn, CreateDateColumn } from 'typeorm'
+import { PrimaryColumn, CreateDateColumn, UpdateDateColumn, DeleteDateColumn } from 'typeorm'
 import { v4 as uuid } from 'uuid'
 
 export class BaseEntity {
@@ -8,10 +8,10 @@ export class BaseEntity {
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date
 
-  @CreateDateColumn({ name: 'updated_at' })
+  @UpdateDateColumn({ name: 'updated_at' })
   updatedAt: Date
 
-  @CreateDateColumn({ name: 'deleted_at' })
+  @DeleteDateColumn({ name: 'deleted_at' })
   deletedAt: Date
 
   constructor() {

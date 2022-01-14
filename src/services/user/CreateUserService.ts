@@ -26,8 +26,9 @@ export class CreateUserService {
       await UserRepository().save(user)
 
       return user
-    } catch {
-      return new Error()
+    } catch (error) {
+      console.log(error)
+      return new Error('Não foi possível salvar')
     }
   }
 }
