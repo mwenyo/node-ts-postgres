@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { body } from 'express-validator'
+import { body, param } from 'express-validator'
 import { CreateRoleController } from 'src/controllers/Role/CreateRoleController'
 import { CreateRolePermitionController } from 'src/controllers/Role/CreateRolePermitionController'
 import { ensureAuthenticated } from 'src/middewares/ensureAuthenticated'
@@ -22,10 +22,10 @@ routes.post(
 
 // ROUTE: CREATE ROLE_PERMITION
 routes.post(
-  '/permitions',
+  '/:roleId/permitions',
   ensureAuthenticated(),
   [
-    body('role', 'Invalid UUID').isUUID('4'),
+    param('roleId', 'Invalid UUID').isUUID('4'),
     body('permitions.*', 'Invalid UUID').isUUID('4')
   ],
   new CreateRolePermitionController().handle
