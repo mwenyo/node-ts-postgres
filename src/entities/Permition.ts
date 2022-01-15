@@ -3,7 +3,7 @@ import { BaseEntity } from './BaseEntity'
 
 @Entity('permitions')
 export class Permition extends BaseEntity {
-  @Column()
+  @Column({ unique: true })
   name: string
 
   @Column()

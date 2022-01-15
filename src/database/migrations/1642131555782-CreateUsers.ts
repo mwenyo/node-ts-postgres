@@ -26,15 +26,18 @@ export class CreateUsers1642131555782 implements MigrationInterface {
           },
           {
             name: 'access_token',
-            type: 'varchar'
+            type: 'varchar',
+            isNullable: true
           },
           {
             name: 'refresh_token',
-            type: 'varchar'
+            type: 'varchar',
+            isNullable: true
           },
           {
             name: 'email_token',
-            type: 'varchar'
+            type: 'varchar',
+            isNullable: true
           },
           {
             name: 'created_at',

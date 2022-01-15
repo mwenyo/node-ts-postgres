@@ -28,7 +28,7 @@ export class CreateUserService {
       return user
     } catch (error) {
       console.log(error)
-      return new Error('Não foi possível salvar')
+      return new Error('Error trying to create user')
     }
   }
 }

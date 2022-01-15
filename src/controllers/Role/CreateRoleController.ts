@@ -1,16 +1,16 @@
-import { CreateUserService } from '@services/User/CreateUserService'
+import { CreateRoleService } from '@services/Role/CreateRoleService'
 import { Request, Response } from 'express'
 import { validationResult } from 'express-validator'
 
-export class CreateUserController {
+export class CreateRoleController {
   async handle(request: Request, response: Response) {
     const errors = validationResult(request)
     if (!errors.isEmpty()) {
       return response.status(400).json({ errors: errors.array() })
     }
-    const service = new CreateUserService()
-    const { name, email, password } = request.body
-    const result = await service.execute({ name, email, password })
+    const { name, description } = request.body
+    const service = new CreateRoleService()
+    const result = await service.execute({ name, description })
     if (result instanceof Error) {
       return response.status(400).json(result.message)
     }

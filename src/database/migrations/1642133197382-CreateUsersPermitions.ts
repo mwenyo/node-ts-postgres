@@ -22,12 +22,12 @@ export class CreateUsersPermitions1642133197382 implements MigrationInterface {
           {
             name: 'updated_at',
             type: 'timestamp',
-            default: 'now()'
+            isNullable: true
           },
           {
             name: 'deleted_at',
             type: 'timestamp',
-            default: 'now()'
+            isNullable: true
           }
         ],
         foreignKeys: [

@@ -2,15 +2,17 @@ import { Router } from 'express'
 import { body } from 'express-validator'
 import { CreateUserController } from 'src/controllers/User/CreateUserController'
 const routes = Router()
+
+// ROUTE: CREATE USER
 routes.post(
   '/',
   [
-    body('name', 'Tamanho mínimo é de 5 caracteres')
-      .isLength({ min: 5 })
+    body('name', 'Name is too short')
+      .isLength({ min: 3 })
       .trim(),
-    body('email', 'Email inválido')
+    body('email', 'Invalid email')
       .isEmail(),
-    body('password', 'Senha muito curta').isLength({ min: 8 })
+    body('password', 'Passowrd is too short').isLength({ min: 8 })
   ],
   new CreateUserController().handle
 )

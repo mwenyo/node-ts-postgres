@@ -7,7 +7,7 @@ export class GetAllUsersService {
       const users = UserRepository().find()
       return users
     } catch (error) {
-      return new Error()
+      return new Error('Error trying to get all users')
     }
   }
 }

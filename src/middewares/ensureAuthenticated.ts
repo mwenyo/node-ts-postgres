@@ -3,13 +3,9 @@ import { decode, verify } from 'jsonwebtoken'
 
 export const ensureAuthenticated = () => {
   return async (request: Request, response: Response, next: NextFunction) => {
-    console.log(request.headers.location)
-
-    const authHeader = request.headers.location
-
-    const [, token] = authHeader.split(' ')
-
     try {
+      const authHeader = request.headers.authorization
+      const [, token] = authHeader.split(' ')
       verify(token, process.env.ACCESS_TOKEN_SECRET)
       const { sub } = decode(token)
       request.userId = sub.toString()

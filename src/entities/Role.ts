@@ -4,11 +4,11 @@ import { Permition } from './Permition'
 
 @Entity('roles')
 export class Role extends BaseEntity {
-  @Column()
+  @Column({ unique: true })
   name: string
 
   @Column()
-  descripton: string
+  description: string
 
   @ManyToMany(() => Permition)
   @JoinTable({

@@ -37,7 +37,7 @@ export class LoginService {
       return foundUser
     } catch (error) {
       console.log(error)
-      return new Error('deu ruim')
+      return new Error('Erro ao realizar login')
     }
   }
 }
