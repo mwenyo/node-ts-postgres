@@ -1,8 +1,8 @@
 import { Router } from 'express'
 import { body } from 'express-validator'
-import { CreateUserAccessControlListController } from 'src/controllers/User/CreateUserAccessControlListController'
-import { CreateUserController } from 'src/controllers/User/CreateUserController'
-import { ensureAuthenticated } from 'src/middewares/ensureAuthenticated'
+import { CreateUserAccessControlListController } from '@controllers/User/CreateUserAccessControlListController'
+import { CreateUserController } from '@controllers/User/CreateUserController'
+import { ensureAuthenticated } from '@middlewares/ensureAuthenticated'
 const routes = Router()
 
 // ROUTE: CREATE USER

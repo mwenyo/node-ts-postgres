@@ -1,8 +1,8 @@
 import { Router } from 'express'
 import { body } from 'express-validator'
-import { CreatePermitionController } from 'src/controllers/Permition/CreatePermitionController'
-import { ensureAuthenticated } from 'src/middewares/ensureAuthenticated'
-import { can } from 'src/middewares/ensureAuthorizated'
+import { CreatePermitionController } from '@controllers/Permition/CreatePermitionController'
+import { ensureAuthenticated } from '@middlewares/ensureAuthenticated'
+import { can } from '@middlewares/ensureAuthorizated'
 const routes = Router()
 
 // ROUTE: CREATE PERMITION

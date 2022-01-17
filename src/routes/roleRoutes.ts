@@ -1,14 +1,16 @@
 import { Router } from 'express'
 import { body, param } from 'express-validator'
-import { CreateRoleController } from 'src/controllers/Role/CreateRoleController'
-import { CreateRolePermitionController } from 'src/controllers/Role/CreateRolePermitionController'
-import { ensureAuthenticated } from 'src/middewares/ensureAuthenticated'
+import { CreateRoleController } from '@controllers/Role/CreateRoleController'
+import { CreateRolePermitionController } from '@controllers/Role/CreateRolePermitionController'
+import { ensureAuthenticated } from '@middlewares/ensureAuthenticated'
+import { is } from '@middlewares/ensureAuthorizated'
 const routes = Router()
 
 // ROUTE: CREATE ROLE
 routes.post(
   '/',
   ensureAuthenticated(),
+  is(['creator']),
   [
     body('name', 'Name is too short')
       .isLength({ min: 3 })
@@ -24,6 +26,7 @@ routes.post(
 routes.post(
   '/:roleId/permitions',
   ensureAuthenticated(),
+  is(['creator', 'admin']),
   [
     param('roleId', 'Invalid UUID').isUUID('4'),
     body('permitions.*', 'Invalid UUID').isUUID('4')

@@ -19,7 +19,7 @@ export class LoginController {
       result.refreshToken,
       {
         httpOnly: true,
-        sameSite: false,
+        sameSite: 'lax',
         maxAge: 24 * 60 * 60 * 1000
       }
     )

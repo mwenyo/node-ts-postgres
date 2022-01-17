@@ -24,18 +24,15 @@
       "@middlewares/*": [
         "./src/middlewares/*"
       ],
-      "@models/*": [
-        "./src/models/*"
+      "@controllers/*": [
+        "./src/controllers/*"
       ],
       "@routes/*": [
         "./src/routes/*"
       ],
       "@services/*": [
         "./src/services/*"
-      ],
-      "@config/*": [
-        "./src/config/*"
-      ],
+      ]
     }
   },
   "include": [
