@@ -10,7 +10,7 @@ export class RefreshAccessTokenController {
     const { cookies } = request
     if (!cookies?.token) return response.status(401).json({ error: 'missing refresh token' })
     const refreshToken = cookies.token.toString()
-    verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, async (error) => {
+    verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, async (error: Object) => {
       if (error) return response.status(400).json({ error })
       const service = new RefreshAccessTokenService()
       const result = await service.execute(refreshToken)
