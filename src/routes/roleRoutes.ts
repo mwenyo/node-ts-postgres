@@ -26,7 +26,7 @@ routes.post(
 routes.post(
   '/:roleId/permitions',
   ensureAuthenticated(),
-  is(['creator', 'admin']),
+  is(['creator', 'Admin']),
   [
     param('roleId', 'Invalid UUID').isUUID('4'),
     body('permitions.*', 'Invalid UUID').isUUID('4')

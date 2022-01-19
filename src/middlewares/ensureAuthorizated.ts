@@ -11,7 +11,7 @@ export const can = (permitionsRequest: string[]) => {
           relations: ['permitions', 'roles', 'roles.permitions']
         }
       )
-      if (!foundUser) return response.sendStatus(401)
+      if (!foundUser) return response.status(401).json({ Error: 'Usuário não encontrado' })
       const { permitions, roles } = foundUser
       const foundPermition = permitions
         .map((permition) => permition.name)
@@ -23,11 +23,11 @@ export const can = (permitionsRequest: string[]) => {
       if (foundPermition || foundRoles.includes(true)) {
         return next()
       } else {
-        return response.sendStatus(403)
+        return response.status(401).json({ Error: 'Usuário não tem permissão para acessar este recurso' })
       }
     } catch (error) {
       console.log(error)
-      return response.sendStatus(403)
+      return response.status(401).json({ Error: 'Usuário não tem permissão para acessar este recurso' })
     }
   }
 }
@@ -42,16 +42,16 @@ export const is = (roleRequest: string[]) => {
           relations: ['roles']
         }
       )
-      if (!foundUser) return response.sendStatus(401)
+      if (!foundUser) return response.status(401).json({ Error: 'Usuário não encontrado' })
       const { roles } = foundUser
       const foundRoles = roles
         .map((role) => role.name)
         .some((role) => roleRequest.includes(role))
-      if (!foundRoles) return response.sendStatus(403)
+      if (!foundRoles) return response.status(403).json({ Error: 'Usuário não tem permissão necessária' })
       return next()
     } catch (error) {
       console.log(error)
-      return response.sendStatus(403)
+      return response.status(403).json({ Error: 'Usuário não tem permissão necessária' })
     }
   }
 }

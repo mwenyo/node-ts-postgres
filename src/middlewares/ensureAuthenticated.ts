@@ -8,15 +8,15 @@ export const ensureAuthenticated = () => {
       const authHeader = request.headers.authorization
       const [, token] = authHeader.split(' ')
       const foundUser = await UserRepository().findOne({ accessToken: token })
-      if (!foundUser) return response.sendStatus(401)
+      if (!foundUser) return response.status(401).json({ Error: 'Usuário não existe' })
       verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
-        if (err || foundUser.id.toString() !== decoded.sub) return response.sendStatus(403)
+        if (err || foundUser.id.toString() !== decoded.sub) return response.status(401).json({ err })
         request.userId = decoded.sub.toString()
         return next()
       })
     } catch (error) {
       console.log(error)
-      return response.sendStatus(401)
+      return response.status(401).json({ Error: 'Não foi possível autenticar usuário' })
     }
   }
 }

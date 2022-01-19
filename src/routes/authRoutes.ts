@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { body } from 'express-validator'
+import { body, cookie } from 'express-validator'
 import { LoginController } from '@controllers/Auth/LoginController'
 import { RefreshAccessTokenController } from '@controllers/Auth/RefreshAccessTokenController'
 
@@ -17,9 +17,9 @@ routes.post(
 
 routes.post(
   '/refresh',
-  // [
-  //   cookie('token', 'Invalid token').isJWT()
-  // ],
+  [
+    cookie('token', 'Invalid token').isJWT()
+  ],
   new RefreshAccessTokenController().handle
 )
 
