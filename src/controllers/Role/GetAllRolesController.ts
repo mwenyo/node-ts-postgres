@@ -6,7 +6,7 @@ export class GetAllRolesController {
     const service = new GetAllRolesService()
     const result = await service.execute()
     if (result instanceof Error) {
-      return response.status(400).json(result.message)
+      return response.status(400).json({ Error: result.message })
     }
     return response.json(result)
   }
