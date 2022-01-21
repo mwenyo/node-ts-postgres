@@ -7,9 +7,7 @@ export class LogoutController {
     const service = new LogoutService()
     const result = await service.execute(userId)
     if (result instanceof Error) {
-      return response.status(400).json({
-        'Error': 'result.message'
-      })
+      return response.status(400).json({ Error: result.message })
     }
     response.clearCookie('token')
     return response.sendStatus(204)

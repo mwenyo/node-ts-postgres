@@ -13,9 +13,7 @@ export class CreateUserAccessControlListController {
     const service = new CreateUserAccessControlListService()
     const result = await service.execute({ userId, roles, permitions })
     if (result instanceof Error) {
-      return response.status(400).json({
-        'Error': 'result.message'
-      })
+      return response.status(400).json({ Error: result.message })
     }
     return response.json(result)
   }

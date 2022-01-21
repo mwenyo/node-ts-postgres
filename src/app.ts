@@ -13,7 +13,7 @@ app.use(express.urlencoded())
 app.use(express.json())
 app.use(cors(corsOptions))
 app.use(cookieParser())
-app.use(morgan('combined'))
+app.use(morgan('tiny'))
 
 app.use(routes)
 
