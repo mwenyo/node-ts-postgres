@@ -3,6 +3,7 @@ import { body } from 'express-validator'
 import { CreateUserAccessControlListController } from '@controllers/User/CreateUserAccessControlListController'
 import { CreateUserController } from '@controllers/User/CreateUserController'
 import { ensureAuthenticated } from '@middlewares/ensureAuthenticated'
+import { UpdateUserController } from '@controllers/User/UpdateUserController'
 const routes = Router()
 
 // ROUTE: CREATE USER
@@ -17,6 +18,13 @@ routes.post(
     body('password', 'Passowrd is too short').isLength({ min: 8 })
   ],
   new CreateUserController().handle
+)
+
+// ROUTE: UPDATE USER
+routes.put(
+  '/:userId',
+  ensureAuthenticated(),
+  new UpdateUserController().handle
 )
 
 // ROUTE: CREATE USER ACL LIST

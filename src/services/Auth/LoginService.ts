@@ -13,7 +13,7 @@ export class LoginService {
     try {
       const foundUser = await UserRepository().findOne({ email })
       if (!foundUser) return new Error('Unauthorized')
-      const passwordMatch = compare(password, foundUser.password)
+      const passwordMatch = await compare(password, foundUser.password)
       if (!passwordMatch) return new Error('Unauthorized')
       const refreshToken = sign(
         {},
