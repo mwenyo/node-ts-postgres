@@ -11,7 +11,9 @@ export class CreateRolePermitionController {
     const service = new CreateRolePermitionService()
     const result = await service.execute({ roleId, permitions })
     if (result instanceof Error) {
-      return response.status(400).json(result.message)
+      return response.status(400).json({
+        'Error': 'result.message'
+      })
     }
     return response.json(result)
   }

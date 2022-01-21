@@ -4,7 +4,7 @@ import { UserRepository } from 'src/repositories'
 export class GetAllUsersService {
   async execute(): Promise<User[] | Error> {
     try {
-      const users = UserRepository().find()
+      const users = UserRepository().find({ select: ['id', 'name', 'email', 'createdAt', 'updatedAt'] })
       return users
     } catch (error) {
       return new Error('Error trying to get all users')

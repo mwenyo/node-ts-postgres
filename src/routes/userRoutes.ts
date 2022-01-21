@@ -1,10 +1,21 @@
 import { Router } from 'express'
-import { body } from 'express-validator'
+import { body, param } from 'express-validator'
+import { ensureAuthenticated } from '@middlewares/ensureAuthenticated'
+import { is } from '@middlewares/ensureAuthorizated'
 import { CreateUserAccessControlListController } from '@controllers/User/CreateUserAccessControlListController'
 import { CreateUserController } from '@controllers/User/CreateUserController'
-import { ensureAuthenticated } from '@middlewares/ensureAuthenticated'
 import { UpdateUserController } from '@controllers/User/UpdateUserController'
+import { DeleteUserController } from '@controllers/User/DeleteUserController'
+import { GetAllUsersController } from '@controllers/User/GetAllUsersController'
 const routes = Router()
+
+// ROUTE: GET ALL USERS
+routes.get(
+  '/',
+  ensureAuthenticated(),
+  is(['admin']),
+  new GetAllUsersController().handle
+)
 
 // ROUTE: CREATE USER
 routes.post(
@@ -24,7 +35,21 @@ routes.post(
 routes.put(
   '/:userId',
   ensureAuthenticated(),
+  [
+    param('userId', 'Invalid UUID').isUUID('4')
+  ],
   new UpdateUserController().handle
+)
+
+// ROUTE: DELETE USER
+routes.delete(
+  '/:userId',
+  ensureAuthenticated(),
+  // can(['delete_user']),
+  [
+    param('userId', 'Invalid UUID').isUUID('4')
+  ],
+  new DeleteUserController().handle
 )
 
 // ROUTE: CREATE USER ACL LIST
