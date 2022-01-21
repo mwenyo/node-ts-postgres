@@ -10,7 +10,7 @@ export class Role extends BaseEntity {
   @Column()
   description: string
 
-  @ManyToMany(() => Permition)
+  @ManyToMany(() => Permition, { eager: true })
   @JoinTable({
     name: 'permitions_roles',
     joinColumn: { name: 'role_id' },

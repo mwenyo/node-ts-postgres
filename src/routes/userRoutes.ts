@@ -36,7 +36,9 @@ routes.put(
   '/:userId',
   ensureAuthenticated(),
   [
-    param('userId', 'Invalid UUID').isUUID('4')
+    param('userId', 'Invalid UUID').isUUID('4'),
+    body('name', 'Invalid name').isLength({ min: 4 }).trim().optional({ checkFalsy: true }),
+    body('description', 'Invalid description').isLength({ min: 4 }).trim().optional({ checkFalsy: true })
   ],
   new UpdateUserController().handle
 )
