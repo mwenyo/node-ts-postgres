@@ -7,6 +7,10 @@ export class DeleteUserService {
     try {
       const foundUser = await repo.findOne(userId)
       await repo.softRemove(foundUser)
+      delete foundUser.deletedAt
+      delete foundUser.createdAt
+      delete foundUser.permitions
+      delete foundUser.roles
       return foundUser
     } catch (error) {
       return new Error('Error trying to delete user')

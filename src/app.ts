@@ -17,4 +17,4 @@ app.use(morgan('combined'))
 
 app.use(routes)
 
-app.listen(3000, () => console.log('⚡ Server is running!'))
+export default app
