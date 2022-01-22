@@ -1,13 +1,13 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm'
 
-export class CreatePermitionsRoles1642133689209 implements MigrationInterface {
+export class CreatePermissionsRoles1642133689209 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'permitions_roles',
+        name: 'permissions_roles',
         columns: [
           {
-            name: 'permition_id',
+            name: 'permission_id',
             type: 'uuid'
           },
           {
@@ -32,10 +32,10 @@ export class CreatePermitionsRoles1642133689209 implements MigrationInterface {
         ],
         foreignKeys: [
           {
-            columnNames: ['permition_id'],
-            referencedTableName: 'permitions',
+            columnNames: ['permission_id'],
+            referencedTableName: 'permissions',
             referencedColumnNames: ['id'],
-            name: 'fk_permitions_role',
+            name: 'fk_permissions_role',
             onDelete: 'RESTRICT',
             onUpdate: 'CASCADE'
           },
@@ -43,7 +43,7 @@ export class CreatePermitionsRoles1642133689209 implements MigrationInterface {
             columnNames: ['role_id'],
             referencedTableName: 'roles',
             referencedColumnNames: ['id'],
-            name: 'fk_role_permitions',
+            name: 'fk_role_permissions',
             onDelete: 'RESTRICT',
             onUpdate: 'CASCADE'
           }
@@ -53,6 +53,6 @@ export class CreatePermitionsRoles1642133689209 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('permitions_roles')
+    await queryRunner.dropTable('permissions_roles')
   }
 }

@@ -1,26 +1,26 @@
 import { NextFunction, Request, Response } from 'express'
 import { UserRepository } from 'src/repositories'
 
-export const can = (permitionsRequest: string[]) => {
+export const can = (permissionsRequest: string[]) => {
   return async (request: Request, response: Response, next: NextFunction) => {
     try {
       const { userId } = request
       const foundUser = await UserRepository().findOne(
         {
           where: { id: userId },
-          relations: ['permitions', 'roles', 'roles.permitions']
+          relations: ['permissions', 'roles', 'roles.permissions']
         }
       )
       if (!foundUser) return response.status(401).json({ Error: 'Usuário não encontrado' })
-      const { permitions, roles } = foundUser
-      const foundPermition = permitions
-        .map((permition) => permition.name)
-        .some((permition) => permitionsRequest.includes(permition))
+      const { permissions, roles } = foundUser
+      const foundPermission = permissions
+        .map((permission) => permission.name)
+        .some((permission) => permissionsRequest.includes(permission))
       const foundRoles = roles
-        .map((role) => role.permitions
-          .map((permition) => permition.name)
-          .some((permition) => permitionsRequest.includes(permition)))
-      if (foundPermition || foundRoles.includes(true)) {
+        .map((role) => role.permissions
+          .map((permission) => permission.name)
+          .some((permission) => permissionsRequest.includes(permission)))
+      if (foundPermission || foundRoles.includes(true)) {
         return next()
       } else {
         return response.status(401).json({ Error: 'Usuário não tem permissão para acessar este recurso' })

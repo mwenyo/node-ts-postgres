@@ -1,8 +1,8 @@
 import { Column, Entity } from 'typeorm'
 import { BaseEntity } from './BaseEntity'
 
-@Entity('permitions')
-export class Permition extends BaseEntity {
+@Entity('permissions')
+export class Permission extends BaseEntity {
   @Column({ unique: true })
   name: string
 

@@ -5,7 +5,7 @@ export class GetAllRolesService {
   async execute(): Promise<Role[] | Error> {
     const repo = RoleRepository()
     try {
-      const roles = await repo.find({ select: ['id', 'name', 'description', 'createdAt', 'updatedAt'], relations: ['permitions'] })
+      const roles = await repo.find({ select: ['id', 'name', 'description', 'createdAt', 'updatedAt'], relations: ['permissions'] })
       return roles
     } catch (error) {
       console.log(error)

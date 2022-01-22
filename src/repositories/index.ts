@@ -1,4 +1,4 @@
-import { Permition } from 'src/entities/Permition'
+import { Permission } from 'src/entities/Permission'
 import { Role } from 'src/entities/Role'
 import { User } from 'src/entities/User'
 import { getRepository } from 'typeorm'
@@ -9,6 +9,6 @@ export const UserRepository = () => {
 export const RoleRepository = () => {
   return getRepository(Role)
 }
-export const PermitionRepository = () => {
-  return getRepository(Permition)
+export const PermissionRepository = () => {
+  return getRepository(Permission)
 }

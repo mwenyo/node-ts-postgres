@@ -9,7 +9,7 @@ export class DeleteRoleService {
       await repo.softRemove(foundRole)
       delete foundRole.deletedAt
       delete foundRole.createdAt
-      delete foundRole.permitions
+      delete foundRole.permissions
       return foundRole
     } catch (error) {
       console.log(error)

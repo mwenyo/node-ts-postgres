@@ -59,7 +59,7 @@ routes.post(
   '/acl',
   ensureAuthenticated(),
   [
-    body('permitions.*', 'Invalid UUID').isUUID('4')
+    body('permissions.*', 'Invalid UUID').isUUID('4')
   ],
   new CreateUserAccessControlListController().handle
 )

@@ -3,7 +3,7 @@ import { body, param } from 'express-validator'
 import { ensureAuthenticated } from '@middlewares/ensureAuthenticated'
 import { is } from '@middlewares/ensureAuthorizated'
 import { CreateRoleController } from '@controllers/Role/CreateRoleController'
-import { CreateRolePermitionController } from '@controllers/Role/CreateRolePermitionController'
+import { CreateRolePermissionController } from '@controllers/Role/CreateRolePermissionController'
 import { UpdateRoleController } from '@controllers/Role/UpdateRoleController'
 import { GetAllRolesController } from '@controllers/Role/GetAllRolesController'
 import { DeleteRoleController } from '@controllers/Role/DeleteRoleController'
@@ -35,14 +35,14 @@ routes.post(
 
 // ROUTE: CREATE ROLE_PERMITION
 routes.post(
-  '/:roleId/permitions',
+  '/:roleId/permissions',
   ensureAuthenticated(),
   is(['creator', 'admin']),
   [
     param('roleId', 'Invalid UUID').isUUID('4'),
-    body('permitions.*', 'Invalid UUID').isUUID('4')
+    body('permissions.*', 'Invalid UUID').isUUID('4')
   ],
-  new CreateRolePermitionController().handle
+  new CreateRolePermissionController().handle
 )
 
 // ROUTE: UPDATE

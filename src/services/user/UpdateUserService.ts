@@ -21,7 +21,7 @@ export class UpdateUserService {
       delete foundUser.createdAt
       delete foundUser.emailToken
       delete foundUser.password
-      delete foundUser.permitions
+      delete foundUser.permissions
       delete foundUser.refreshToken
       delete foundUser.roles
       return foundUser

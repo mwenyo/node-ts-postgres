@@ -1,19 +1,19 @@
 import { Role } from 'src/entities/Role'
-import { PermitionRepository, RoleRepository } from 'src/repositories'
+import { PermissionRepository, RoleRepository } from 'src/repositories'
 
-type RolePermitionRequest = {
+type RolePermissionRequest = {
   roleId: string
-  permitions: string[]
+  permissions: string[]
 }
 
-export class CreateRolePermitionService {
-  async execute({ roleId, permitions }: RolePermitionRequest): Promise<Role | Error> {
+export class CreateRolePermissionService {
+  async execute({ roleId, permissions }: RolePermissionRequest): Promise<Role | Error> {
     const repo = RoleRepository()
     try {
       const role = await repo.findOne(roleId)
       if (!role) return new Error('Role does not exists')
-      const foundPermitions = await PermitionRepository().findByIds(permitions)
-      role.permitions = foundPermitions
+      const foundPermissions = await PermissionRepository().findByIds(permissions)
+      role.permissions = foundPermissions
       repo.save(role)
       return role
     } catch (error) {

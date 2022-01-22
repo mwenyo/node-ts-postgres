@@ -9,7 +9,7 @@ export class DeleteUserService {
       await repo.softRemove(foundUser)
       delete foundUser.deletedAt
       delete foundUser.createdAt
-      delete foundUser.permitions
+      delete foundUser.permissions
       delete foundUser.roles
       return foundUser
     } catch (error) {

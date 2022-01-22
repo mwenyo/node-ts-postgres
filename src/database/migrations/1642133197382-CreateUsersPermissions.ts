@@ -1,17 +1,17 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm'
 
-export class CreateUsersPermitions1642133197382 implements MigrationInterface {
+export class CreateUsersPermissions1642133197382 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'users_permitions',
+        name: 'users_permissions',
         columns: [
           {
             name: 'user_id',
             type: 'uuid'
           },
           {
-            name: 'permition_id',
+            name: 'permission_id',
             type: 'uuid'
           },
           {
@@ -35,15 +35,15 @@ export class CreateUsersPermitions1642133197382 implements MigrationInterface {
             columnNames: ['user_id'],
             referencedTableName: 'users',
             referencedColumnNames: ['id'],
-            name: 'fk_user_permitions',
+            name: 'fk_user_permissions',
             onDelete: 'RESTRICT',
             onUpdate: 'CASCADE'
           },
           {
-            columnNames: ['permition_id'],
-            referencedTableName: 'permitions',
+            columnNames: ['permission_id'],
+            referencedTableName: 'permissions',
             referencedColumnNames: ['id'],
-            name: 'fk_permitions_user',
+            name: 'fk_permissions_user',
             onDelete: 'RESTRICT',
             onUpdate: 'CASCADE'
           }
@@ -53,6 +53,6 @@ export class CreateUsersPermitions1642133197382 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('users_permitions')
+    await queryRunner.dropTable('users_permissions')
   }
 }
