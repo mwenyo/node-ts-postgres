@@ -17,6 +17,7 @@ export class CreateRolePermitionService {
       repo.save(role)
       return role
     } catch (error) {
+      console.log(error)
       return new Error('Error trying to save')
     }
   }

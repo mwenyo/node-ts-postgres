@@ -6,6 +6,7 @@ import { CreateRoleController } from '@controllers/Role/CreateRoleController'
 import { CreateRolePermitionController } from '@controllers/Role/CreateRolePermitionController'
 import { UpdateRoleController } from '@controllers/Role/UpdateRoleController'
 import { GetAllRolesController } from '@controllers/Role/GetAllRolesController'
+import { DeleteRoleController } from '@controllers/Role/DeleteRoleController'
 const routes = Router()
 
 // ROUTE: GET ALL ROLES
@@ -55,6 +56,14 @@ routes.put(
     body('description', 'Invalid description').isLength({ min: 4 }).trim().optional({ checkFalsy: true })
   ],
   new UpdateRoleController().handle
+)
+
+// ROUTE: DELETE
+routes.delete(
+  '/:roleId',
+  ensureAuthenticated(),
+  is(['admin']),
+  new DeleteRoleController().handle
 )
 
 export { routes }

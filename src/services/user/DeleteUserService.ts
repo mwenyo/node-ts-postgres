@@ -13,6 +13,7 @@ export class DeleteUserService {
       delete foundUser.roles
       return foundUser
     } catch (error) {
+      console.log(error)
       return new Error('Error trying to delete user')
     }
   }
