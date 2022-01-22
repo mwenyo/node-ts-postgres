@@ -15,7 +15,7 @@ export class RefreshAccessTokenController {
       const service = new RefreshAccessTokenService()
       const result = await service.execute(refreshToken)
       if (result instanceof Error) {
-        return response.status(400).json({ Error: 'result.message' })
+        return response.status(400).json({ Error: result.message })
       }
       return response.json({ token: result.accessToken })
     })
