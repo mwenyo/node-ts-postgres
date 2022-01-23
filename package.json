@@ -10,6 +10,10 @@
     "start": "node dist/server.js",
     "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js"
   },
+  "engines": {
+    "node": "14.x",
+    "npm": "6.x"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
