@@ -18,7 +18,8 @@ module.exports = {
         '@middlewares': './src/middlewares',
         '@services': './src/services'
       }
-    }]
+    }],
+    ["@babel/plugin-proposal-decorators", { "legacy": true }]
   ],
   ignore: [
     '**/*.spec.ts'
