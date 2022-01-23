@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 import { validationResult } from 'express-validator'
-import { UpdatePermissionService } from '@services/Permission/UpdatePermissionService'
+import { UpdatePermissionService } from '../../services/Permission/UpdatePermissionService'
 
 export class UpdatePermissionController {
   async handle(request: Request, response: Response) {

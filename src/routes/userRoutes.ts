@@ -1,12 +1,12 @@
 import { Router } from 'express'
 import { body, param } from 'express-validator'
-import { ensureAuthenticated } from '@middlewares/ensureAuthenticated'
-import { is } from '@middlewares/ensureAuthorizated'
-import { CreateUserAccessControlListController } from '@controllers/User/CreateUserAccessControlListController'
-import { CreateUserController } from '@controllers/User/CreateUserController'
-import { UpdateUserController } from '@controllers/User/UpdateUserController'
-import { DeleteUserController } from '@controllers/User/DeleteUserController'
-import { GetAllUsersController } from '@controllers/User/GetAllUsersController'
+import { ensureAuthenticated } from '../middlewares/ensureAuthenticated'
+import { is } from '../middlewares/ensureAuthorizated'
+import { CreateUserAccessControlListController } from '../controllers/User/CreateUserAccessControlListController'
+import { CreateUserController } from '../controllers/User/CreateUserController'
+import { UpdateUserController } from '../controllers/User/UpdateUserController'
+import { DeleteUserController } from '../controllers/User/DeleteUserController'
+import { GetAllUsersController } from '../controllers/User/GetAllUsersController'
 const routes = Router()
 
 // ROUTE: GET ALL USERS

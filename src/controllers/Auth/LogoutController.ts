@@ -1,4 +1,4 @@
-import { LogoutService } from '@services/Auth/LogoutService'
+import { LogoutService } from '../../services/Auth/LogoutService'
 import { Request, Response } from 'express'
 
 export class LogoutController {

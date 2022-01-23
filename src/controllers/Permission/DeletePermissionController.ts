@@ -1,4 +1,4 @@
-import { DeletePermissionService } from '@services/Permission/DeletePermissionService'
+import { DeletePermissionService } from '../../services/Permission/DeletePermissionService'
 import { Request, Response } from 'express'
 import { validationResult } from 'express-validator'
 

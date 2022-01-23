@@ -1,4 +1,4 @@
-import { CreateUserService } from '@services/User/CreateUserService'
+import { CreateUserService } from '../../services/User/CreateUserService'
 import { Request, Response } from 'express'
 import { validationResult } from 'express-validator'
 

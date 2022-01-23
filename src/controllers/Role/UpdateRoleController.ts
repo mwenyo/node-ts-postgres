@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 import { validationResult } from 'express-validator'
-import { UpdateRoleService } from '@services/Role/UpdateRoleService'
+import { UpdateRoleService } from '../../services/Role/UpdateRoleService'
 
 export class UpdateRoleController {
   async handle(request: Request, response: Response) {

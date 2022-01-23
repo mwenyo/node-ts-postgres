@@ -1,4 +1,4 @@
-import { DeleteUserService } from '@services/User/DeleteUserService'
+import { DeleteUserService } from '../../services/User/DeleteUserService'
 import { Request, Response } from 'express'
 import { validationResult } from 'express-validator'
 

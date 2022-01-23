@@ -1,4 +1,4 @@
-import { RefreshAccessTokenService } from '@services/Auth/RefreshAccessTokenService'
+import { RefreshAccessTokenService } from '../../services/Auth/RefreshAccessTokenService'
 import { Request, Response } from 'express'
 import { validationResult } from 'express-validator'
 import { verify } from 'jsonwebtoken'

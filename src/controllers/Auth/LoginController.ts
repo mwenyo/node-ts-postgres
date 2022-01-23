@@ -1,6 +1,6 @@
-import { LoginService } from '@services/Auth/LoginService'
 import { Request, Response } from 'express'
 import { validationResult } from 'express-validator'
+import { LoginService } from '../../services/Auth/LoginService'
 
 export class LoginController {
   async handle(request: Request, response: Response) {

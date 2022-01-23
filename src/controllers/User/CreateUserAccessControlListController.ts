@@ -1,4 +1,4 @@
-import { CreateUserAccessControlListService } from '@services/User/CreateUserAccessControlListService'
+import { CreateUserAccessControlListService } from '../../services/User/CreateUserAccessControlListService'
 import { Request, Response } from 'express'
 import { validationResult } from 'express-validator'
 

@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { GetAllRolesService } from '@services/Role/GetAllRolesService'
+import { GetAllRolesService } from '../../services/Role/GetAllRolesService'
 
 export class GetAllRolesController {
   async handle(request: Request, response: Response) {

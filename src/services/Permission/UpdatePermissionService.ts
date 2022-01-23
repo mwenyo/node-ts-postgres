@@ -1,5 +1,5 @@
-import { Permission } from '@entities/Permission'
-import { PermissionRepository } from '@repositories/index'
+import { Permission } from '../../entities/Permission'
+import { PermissionRepository } from '../../repositories/index'
 
 type partialPermissionRequest = {
   name?: string

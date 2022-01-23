@@ -1,4 +1,4 @@
-import { DeleteRoleService } from '@services/Role/DeleteRoleService'
+import { DeleteRoleService } from '../../services/Role/DeleteRoleService'
 import { Request, Response } from 'express'
 import { validationResult } from 'express-validator'
 

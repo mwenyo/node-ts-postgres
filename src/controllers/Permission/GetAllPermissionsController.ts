@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { GetAllPermissionsService } from '@services/Permission/GetAllPermissionsService'
+import { GetAllPermissionsService } from '../../services/Permission/GetAllPermissionsService'
 
 export class GetAllPermissionsController {
   async handle(request: Request, response: Response) {

@@ -1,5 +1,5 @@
-import { Permission } from '@entities/Permission'
-import { PermissionRepository } from '@repositories/index'
+import { Permission } from '../../entities/Permission'
+import { PermissionRepository } from '../../repositories/index'
 
 export class GetAllPermissionsService {
   async execute(): Promise<Permission[] | Error> {

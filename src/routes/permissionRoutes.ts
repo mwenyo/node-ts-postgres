@@ -1,11 +1,11 @@
 import { Router } from 'express'
 import { body, param } from 'express-validator'
-import { CreatePermissionController } from '@controllers/Permission/CreatePermissionController'
-import { ensureAuthenticated } from '@middlewares/ensureAuthenticated'
-import { can, is } from '@middlewares/ensureAuthorizated'
-import { GetAllPermissionsController } from '@controllers/Permission/GetAllPermissionsController'
-import { UpdatePermissionController } from '@controllers/Permission/UpdatePermissionController'
-import { DeletePermissionController } from '@controllers/Permission/DeletePermissionController'
+import { CreatePermissionController } from '../controllers/Permission/CreatePermissionController'
+import { ensureAuthenticated } from '../middlewares/ensureAuthenticated'
+import { can, is } from '../middlewares/ensureAuthorizated'
+import { GetAllPermissionsController } from '../controllers/Permission/GetAllPermissionsController'
+import { UpdatePermissionController } from '../controllers/Permission/UpdatePermissionController'
+import { DeletePermissionController } from '../controllers/Permission/DeletePermissionController'
 const routes = Router()
 
 // ROUTE: GET ALL ROLES

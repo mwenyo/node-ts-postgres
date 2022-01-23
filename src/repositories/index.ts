@@ -1,6 +1,6 @@
-import { Permission } from '@entities/Permission'
-import { Role } from '@entities/Role'
-import { User } from '@entities/User'
+import { Permission } from '../entities/Permission'
+import { Role } from '../entities/Role'
+import { User } from '../entities/User'
 import { getRepository } from 'typeorm'
 
 export const UserRepository = () => {

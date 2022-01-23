@@ -1,5 +1,5 @@
-import { Role } from '@entities/Role'
-import { PermissionRepository, RoleRepository } from '@repositories/index'
+import { Role } from '../../entities/Role'
+import { PermissionRepository, RoleRepository } from '../../repositories/index'
 
 type RolePermissionRequest = {
   roleId: string

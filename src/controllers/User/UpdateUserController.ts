@@ -1,4 +1,4 @@
-import { UpdateUserService } from '@services/User/UpdateUserService'
+import { UpdateUserService } from '../../services/User/UpdateUserService'
 import { Request, Response } from 'express'
 import { validationResult } from 'express-validator'
 

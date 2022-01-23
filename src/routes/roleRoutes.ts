@@ -1,12 +1,12 @@
 import { Router } from 'express'
 import { body, param } from 'express-validator'
-import { ensureAuthenticated } from '@middlewares/ensureAuthenticated'
-import { is } from '@middlewares/ensureAuthorizated'
-import { CreateRoleController } from '@controllers/Role/CreateRoleController'
-import { CreateRolePermissionController } from '@controllers/Role/CreateRolePermissionController'
-import { UpdateRoleController } from '@controllers/Role/UpdateRoleController'
-import { GetAllRolesController } from '@controllers/Role/GetAllRolesController'
-import { DeleteRoleController } from '@controllers/Role/DeleteRoleController'
+import { ensureAuthenticated } from '../middlewares/ensureAuthenticated'
+import { is } from '../middlewares/ensureAuthorizated'
+import { CreateRoleController } from '../controllers/Role/CreateRoleController'
+import { CreateRolePermissionController } from '../controllers/Role/CreateRolePermissionController'
+import { UpdateRoleController } from '../controllers/Role/UpdateRoleController'
+import { GetAllRolesController } from '../controllers/Role/GetAllRolesController'
+import { DeleteRoleController } from '../controllers/Role/DeleteRoleController'
 const routes = Router()
 
 // ROUTE: GET ALL ROLES

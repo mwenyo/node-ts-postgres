@@ -1,4 +1,4 @@
-import { CreateRolePermissionService } from '@services/Role/CreateRolePermissionService'
+import { CreateRolePermissionService } from '../../services/Role/CreateRolePermissionService'
 import { Request, Response } from 'express'
 import { validationResult } from 'express-validator'
 
