@@ -1,5 +1,5 @@
 import { User } from '@entities/User'
-import { UserRepository } from '@repositories'
+import { UserRepository } from '@repositories/index'
 
 export class GetAllUsersService {
   async execute(): Promise<User[] | Error> {

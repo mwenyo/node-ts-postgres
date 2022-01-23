@@ -1,5 +1,5 @@
 import { User } from '@entities/User'
-import { UserRepository } from '@repositories'
+import { UserRepository } from '@repositories/index'
 
 export class LogoutService {
   async execute(userId: string): Promise<User | Error> {

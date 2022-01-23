@@ -1,5 +1,5 @@
 import { User } from '@entities/User'
-import { UserRepository } from '@repositories'
+import { UserRepository } from '@repositories/index'
 
 type partialUserRequest = {
   name?: string

@@ -1,7 +1,7 @@
 import { compare } from 'bcryptjs'
 import { sign } from 'jsonwebtoken'
 import { User } from '@entities/User'
-import { UserRepository } from '@repositories'
+import { UserRepository } from '@repositories/index'
 
 type UserRequest = {
   email: string
