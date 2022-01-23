@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express'
 import { verify } from 'jsonwebtoken'
-import { UserRepository } from 'src/repositories'
+import { UserRepository } from '@repositories'
 
 export const ensureAuthenticated = () => {
   return async (request: Request, response: Response, next: NextFunction) => {

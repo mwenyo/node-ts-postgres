@@ -1,5 +1,5 @@
-import { Role } from 'src/entities/Role'
-import { RoleRepository } from 'src/repositories'
+import { Role } from '@entities/Role'
+import { RoleRepository } from '@repositories'
 
 export class GetAllRolesService {
   async execute(): Promise<Role[] | Error> {

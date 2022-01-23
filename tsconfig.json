@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
-    "target": "es2021",
+    "target": "es2017",
     "lib": [
       "ES6"
     ],
+    "strict": false,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "module": "commonjs",
@@ -32,7 +33,13 @@
       ],
       "@services/*": [
         "./src/services/*"
-      ]
+      ],
+      "@repositories/*": [
+        "./src/repositories/*"
+      ],
+      "@entities/*": [
+        "./src/entities/*"
+      ],
     }
   },
   "include": [

@@ -1,6 +1,6 @@
 import { sign } from 'jsonwebtoken'
-import { User } from 'src/entities/User'
-import { UserRepository } from 'src/repositories'
+import { User } from '@entities/User'
+import { UserRepository } from '@repositories'
 
 export class RefreshAccessTokenService {
   async execute(refreshToken: string): Promise<User | Error> {

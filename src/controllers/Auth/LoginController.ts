@@ -20,7 +20,8 @@ export class LoginController {
       {
         httpOnly: true,
         sameSite: 'lax',
-        maxAge: 24 * 60 * 60 * 1000
+        maxAge: 24 * 60 * 60 * 1000,
+        secure: true
       }
     )
     return response.status(200).json({ token: result.accessToken })

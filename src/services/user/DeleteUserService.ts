@@ -1,5 +1,5 @@
-import { User } from 'src/entities/User'
-import { UserRepository } from 'src/repositories'
+import { User } from '@entities/User'
+import { UserRepository } from '@repositories'
 
 export class DeleteUserService {
   async execute(userId: string): Promise<User | Error> {

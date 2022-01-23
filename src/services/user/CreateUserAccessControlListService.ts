@@ -1,5 +1,5 @@
-import { User } from 'src/entities/User'
-import { PermissionRepository, RoleRepository, UserRepository } from 'src/repositories'
+import { User } from '@entities/User'
+import { PermissionRepository, RoleRepository, UserRepository } from '@repositories'
 
 type UserACLRequest = {
   userId: string

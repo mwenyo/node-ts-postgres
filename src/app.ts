@@ -4,7 +4,7 @@ import morgan from 'morgan'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
 import './database'
-import { routes } from '@routes/routes'
+import { routes } from './routes/routes'
 import corsOptions from './config/corsOptions'
 
 const app = express()

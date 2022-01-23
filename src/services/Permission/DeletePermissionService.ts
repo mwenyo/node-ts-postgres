@@ -1,5 +1,5 @@
-import { Permission } from 'src/entities/Permission'
-import { PermissionRepository } from 'src/repositories'
+import { Permission } from '@entities/Permission'
+import { PermissionRepository } from '@repositories'
 
 export class DeletePermissionService {
   async execute(permissionId: string): Promise<Permission | Error> {
