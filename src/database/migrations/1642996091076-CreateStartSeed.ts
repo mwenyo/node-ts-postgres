@@ -135,6 +135,11 @@ export class CreateStartSeed1642996091076 implements MigrationInterface {
     }
   ]
 
+  adminUserRole = {
+    user_id: this.adminUser,
+    role_id: this.adminRole
+  }
+
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner
       .manager
@@ -168,6 +173,13 @@ export class CreateStartSeed1642996091076 implements MigrationInterface {
       .insert()
       .into('permissions_roles')
       .values(this.adminRolePermissions)
+      .execute()
+    await queryRunner
+      .manager
+      .createQueryBuilder()
+      .insert()
+      .into('users_roles')
+      .values(this.adminUserRole)
       .execute()
   }
 
