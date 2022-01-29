@@ -7,7 +7,7 @@ export class CreateStartSeed1642996091076 implements MigrationInterface {
     id: uuid(),
     name: 'Usuário Supremo',
     email: 'admin@irent-ifpi.com',
-    password: hash('12345678', 10)
+    password: ''
   }
 
   adminRole = {
@@ -141,6 +141,7 @@ export class CreateStartSeed1642996091076 implements MigrationInterface {
   }
 
   public async up(queryRunner: QueryRunner): Promise<void> {
+    this.adminUser.password = await hash('12345678', 10)
     await queryRunner
       .manager
       .createQueryBuilder()

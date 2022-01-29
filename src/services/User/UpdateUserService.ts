@@ -16,13 +16,10 @@ export class UpdateUserService {
       foundUser.name = name || foundUser.name
       foundUser.email = email || foundUser.email
       repo.save(foundUser)
-      delete foundUser.accessToken
       delete foundUser.deletedAt
       delete foundUser.createdAt
-      delete foundUser.emailToken
       delete foundUser.password
       delete foundUser.permissions
-      delete foundUser.refreshToken
       delete foundUser.roles
       return foundUser
     } catch (error) {

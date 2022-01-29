@@ -7,11 +7,10 @@ export const ensureAuthenticated = () => {
     try {
       const authHeader = request.headers.authorization
       const [, token] = authHeader.split(' ')
-      const foundUser = await UserRepository().findOne({ accessToken: token })
-      if (!foundUser) return response.status(401).json({ Error: 'Invalid credentials' })
-      verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
-        if (err || foundUser.id.toString() !== decoded.sub) return response.status(401).json({ Error: 'Invalid credentials' })
-        request.userId = decoded.sub.toString()
+      verify(token, process.env.ACCESS_TOKEN_SECRET, async (err, decoded) => {
+        if (err || !decoded.sub) return response.status(401).json({ Error: 'Invalid credentials' })
+        const foundUser = await UserRepository().findOne({ id: decoded.sub.toString() })
+        request.userId = foundUser.id
         return next()
       })
     } catch (error) {

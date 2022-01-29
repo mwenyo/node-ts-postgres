@@ -1,11 +1,10 @@
 import { sign } from 'jsonwebtoken'
-import { User } from '../../entities/User'
 import { UserRepository } from '../../repositories/index'
 
 export class RefreshAccessTokenService {
-  async execute(refreshToken: string): Promise<User | Error> {
+  async execute(userId: string): Promise<string | Error> {
     try {
-      const foundUser = await UserRepository().findOne({ refreshToken })
+      const foundUser = await UserRepository().findOne({ id: userId })
       if (!foundUser) return new Error('Invalid refresh token')
       const newAccessToken = sign(
         {},
@@ -15,9 +14,7 @@ export class RefreshAccessTokenService {
           expiresIn: '3m'
         }
       )
-      foundUser.accessToken = newAccessToken
-      await UserRepository().save(foundUser)
-      return foundUser
+      return newAccessToken
     } catch (error) {
       console.log(error)
       return new Error('Error trying to create access token')
