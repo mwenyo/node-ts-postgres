@@ -20,6 +20,8 @@ routes.get(
 // ROUTE: CREATE USER
 routes.post(
   '/',
+  ensureAuthenticated(),
+  is(['employee', 'admin']),
   [
     body('name', 'Name is too short')
       .isLength({ min: 3 })
