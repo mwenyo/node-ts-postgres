@@ -1,5 +1,5 @@
 import { sign } from 'jsonwebtoken'
-import { UserRepository } from '../../repositories/index'
+import { UserRepository } from '../../database/repositories/index'
 
 export class RefreshAccessTokenService {
   async execute(userId: string): Promise<string | Error> {

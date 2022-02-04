@@ -1,6 +1,6 @@
 import { hash } from 'bcryptjs'
-import { User } from '../../entities/User'
-import { UserRepository } from '../../repositories/index'
+import { User } from '../../database/entities/User'
+import { UserRepository } from '../../database/repositories/index'
 
 type UserRequest = {
   name: string,

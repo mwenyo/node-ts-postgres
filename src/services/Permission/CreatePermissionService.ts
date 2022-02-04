@@ -1,5 +1,5 @@
-import { Permission } from '../../entities/Permission'
-import { PermissionRepository } from '../../repositories/index'
+import { Permission } from '../../database/entities/Permission'
+import { PermissionRepository } from '../../database/repositories/index'
 
 type PermissionRequest = {
   name: string

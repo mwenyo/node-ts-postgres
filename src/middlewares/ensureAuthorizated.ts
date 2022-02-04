@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express'
-import { UserRepository } from '../repositories/index'
+import { UserRepository } from '../database/repositories/index'
 
 export const can = (permissionsRequest: string[]) => {
   return async (request: Request, response: Response, next: NextFunction) => {

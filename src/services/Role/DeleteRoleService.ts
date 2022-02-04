@@ -1,5 +1,5 @@
-import { Role } from '../../entities/Role'
-import { RoleRepository } from '../../repositories/index'
+import { Role } from '../../database/entities/Role'
+import { RoleRepository } from '../../database/repositories/index'
 
 export class DeleteRoleService {
   async execute(roleId: string): Promise<Role | Error> {
