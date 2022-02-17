@@ -23,14 +23,14 @@ export class LoginController {
       cookieOptions = {
         httpOnly: true,
         maxAge: 24 * 60 * 60 * 1000,
-        sameSite: 'none',
+        sameSite: 'lax',
         secure: true
       }
     } else {
       cookieOptions = {
         httpOnly: true,
         maxAge: 24 * 60 * 60 * 1000,
-        sameSite: 'strict',
+        sameSite: 'lax',
         secure: false
       }
     }
