@@ -1,5 +1,6 @@
 import { compare } from 'bcryptjs'
 import { sign } from 'jsonwebtoken'
+import { User } from 'src/database/entities/User'
 import { UserRepository } from '../../database/repositories/index'
 
 type UserRequest = {
@@ -9,13 +10,18 @@ type UserRequest = {
 
 type TokenResponse = {
   accessToken: string
-  refreshToken: string
+  refreshToken: string,
+  user: User
 }
 
 export class LoginService {
   async execute({ email, password }: UserRequest): Promise<TokenResponse | Error> {
     try {
-      const foundUser = await UserRepository().findOne({ email })
+      const foundUser = await UserRepository()
+        .findOne(
+          { email },
+          { select: ['email', 'name', 'password'] }
+        )
       if (!foundUser) return new Error('Unauthorized')
       const passwordMatch = await compare(password, foundUser.password)
       if (!passwordMatch) return new Error('Unauthorized')
@@ -35,9 +41,12 @@ export class LoginService {
           expiresIn: '3m'
         }
       )
+      delete foundUser.password
+      delete foundUser.id
       const result: TokenResponse = {
         accessToken,
-        refreshToken
+        refreshToken,
+        user: foundUser
       }
       return result
     } catch (error) {

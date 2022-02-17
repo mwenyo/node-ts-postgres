@@ -8,7 +8,9 @@ const corsOptions = {
       callback(new Error('Not allowed by CORS'))
     }
   },
-  optionsSuccessStatus: 200
+  credentials: true, // token in cookie
+  methods: 'GET,PUT,POST,OPTIONS, DELETE',
+  allowedHeaders: 'Accept,Content-Type,Authorization'
 }
 
 module.exports = corsOptions
