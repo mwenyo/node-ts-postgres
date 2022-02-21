@@ -1,5 +1,5 @@
 # node-ts-postgres
-Link para testar a API online:
 
-Simple backend with typescript and postgres
-https://irent-users.herokuapp.com
+Refatoração do microsserviço de cadastro, autenticação e autorização de usuários
+
+Link da api em produção: https://irent-users.herokuapp.com
